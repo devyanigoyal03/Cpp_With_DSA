@@ -15,16 +15,16 @@ public:
     }
 };
 
-void InsertBeg(Node *&head, Node *&tail, int data)
+void InsertEnd(Node *&head, Node *&tail, int data)
 {
-    // create node and then add it in beginning
+    // create node and then add it in end of node
     Node *temp = new Node(data);
+    tail->next = temp;
     temp->next = head;
-    head = temp;
-    tail->next = head;
+    tail = temp;
 }
 
-// Traverse
+//Traverse
 void print(Node *&head)
 {
     if (head == NULL)
@@ -47,10 +47,11 @@ int main()
     Node *node1 = new Node(10);
     Node *head = node1;
     Node *tail = node1;
-    InsertBeg(head, tail, 20);
+    InsertEnd(head, tail, 20);
     // print(head);
-    InsertBeg(head, tail, 30);
+    InsertEnd(head, tail, 30);
     // print(head);
-    InsertBeg(head, tail, 40);
+    InsertEnd(head, tail, 40);
     print(head);
+    cout<<tail->data<<endl<<tail->next->data;
 }
